@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Exercises
 
-  1. Implement all of the steps marked with "TODO" comments in the "seatClicked" method of app.component.ts.
+  1. Implement all of the steps marked with "TODO" comments in app.component.ts.
   
-  1. As a bonus, add unit tests to app.component.spec.ts that will test your code changes from the previous step.
+  1. As a bonus, add unit tests for the reservation search service
 
 ## Development server
 
