@@ -1,0 +1,42 @@
+<div class="app-title">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<div class="searchForm">
+  Reservation ID: <input [(ngModel)]="reservationSearchId" /><button (click)="searchForReservationId()">SEARCH</button>
+</div>
+<ng-container *ngIf="reservation else noData">
+  <div class="passengers">
+    <span class="section-title">Passenger List:</span>
+    <div *ngFor="let rowIndex=index; let passenger of reservation.passengers;">
+      <div class="passenger" [ngClass]="{'selected': selectedPassenger === passenger}" (click)="selectedPassenger = passenger">
+        <div>{{rowIndex + 1}} <span *ngIf="selectedPassenger === passenger">(Selected)</span></div>
+        <div>Name: {{passenger.firstName}} {{passenger.lastName}}</div>
+        <div *ngIf="passenger.aircraftSeatAssignment">
+          Seat Row: {{passenger.aircraftSeatAssignment.aircraftSeatRow}}
+          Seat Column: {{passenger.aircraftSeatAssignment.aircraftSeatColumn}}
+        </div>
+        <div *ngIf="!passenger.aircraftSeatAssignment">
+          Unseated
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="seats">
+    <div class="section-title seats-title">Aircraft Seats</div>
+    <div *ngFor="let rowIndex=index; let row of reservation.aircraftSeats;">
+      <div class="row">
+        {{rowIndex + 1}}
+        <div (click)="seatClicked(rowIndex, colIndex)"
+             class="column" *ngFor="let colIndex=index; let seat of reservation.aircraftSeats[rowIndex];">
+          <span class="seat">{{seat.text}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #noData>
+  <div *ngIf="isFailedSearch()">Reservation could not be loaded</div>
+</ng-template>
+

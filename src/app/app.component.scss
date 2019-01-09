@@ -1,0 +1,52 @@
+.app-title {
+  text-align:center;
+}
+
+.passengers {
+  float: left;
+  padding: 10px;
+  width: 280px;
+  .passenger {
+    border: 2px solid black;
+    padding: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+    &.selected {
+      color: blue;
+      font-weight: bold;
+    }
+  }
+}
+
+.searchForm {
+  margin-bottom: 10px;
+}
+
+.seats {
+  border: 2px solid black;
+  float: left;
+  margin-left: 10px;
+  padding: 16px;
+
+  .row {
+    padding: 5px;
+    .column {
+      border: 1px solid black;
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .seats-title {
+    text-align:center;
+  }
+}
+
+.section-title {
+  font-size: 1.5em;
+  text-decoration: underline;
+}
